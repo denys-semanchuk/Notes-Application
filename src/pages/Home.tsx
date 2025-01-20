@@ -32,7 +32,12 @@ export const Home = () => {
         <AddButton onClick={createANote} />
       </div>}
       {notes.length > 0 && notes.map(note => (
-        <NoteCard key={note.id} note={note} />
+        <>
+          <NoteCard key={note.id} note={note} />
+          <div className='add-button-container'>
+            <AddButton onClick={createANote} />
+          </div>
+        </>
       ))}
     </>
   )

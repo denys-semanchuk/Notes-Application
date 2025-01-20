@@ -6,11 +6,12 @@
   padding: 2rem;
 }
 
-.editor-section, .preview-section {
+.editor-section,
+.preview-section {
   background: white;
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .markdown-editor {
@@ -19,13 +20,35 @@
   border: none;
   resize: none;
   outline: none;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 1rem;
   line-height: 1.5;
 }
 
 .preview-section {
   overflow-y: auto;
+}
+
+.note-title-input {
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-bottom: 2px solid #e2e8f0;
+  outline: none;
+  font-weight: 600;
+}
+
+.note-title-input:focus {
+  border-color: #2563eb;
+}
+
+.preview-section h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e293b;
 }
 
 @media (max-width: 768px) {

@@ -4,3 +4,10 @@
   align-items: center;
   height: calc(100vh - 120px); /* Account for header and footer */
 }
+
+.add-button-container {
+  position: fixed;
+  right: 20px;
+  bottom: 40px;
+  z-index: 1;
+}

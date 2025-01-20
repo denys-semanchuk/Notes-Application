@@ -3,13 +3,7 @@ import 'styles/footer.css';
 const Footer = () => {
   return (
     <footer>
-      <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
-      <nav>
-        <ul>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
+      <p>&copy; {new Date().getFullYear()} QuickQuill Notes. All rights reserved.</p>
     </footer>
   );
 };
