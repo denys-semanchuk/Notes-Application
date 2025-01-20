@@ -1,51 +1,32 @@
-# README.md content
-
 # React Dashboard
 
-This project is a React-based dashboard application that includes a header, footer, and navigation for seamless user experience. 
+A modern React dashboard application for managing markdown notes. Built with React, Redux Toolkit, and TypeScript, featuring a clean and responsive design.
 
 ## Features
 
-- **Header**: Contains the logo and navigation links.
-- **Footer**: Displays copyright information and additional links.
-- **Navigation**: Provides a menu for navigating between different pages.
-- **Reusable Components**: Includes common components like buttons and cards for consistent UI.
+- **Notes Management**: Create, edit, and delete markdown notes
+- **Markdown Support**: Full markdown editing and preview
+- **Persistent Storage**: Automatic saving to localStorage
+- **Responsive Design**: Works on desktop and mobile devices
 
-## Project Structure
+## Tech Stack
 
+- React 18
+- TypeScript
+- Redux Toolkit
+- React Router v6
+- React Markdown
+- UUID
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/react-dashboard.git
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
 ```
-react-dashboard
-├── src
-│   ├── components
-│   │   ├── layout
-│   │   │   ├── Header.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   └── Navigation.tsx
-│   │   └── common
-│   │       ├── Button.tsx
-│   │       └── Card.tsx
-│   ├── pages
-│   │   ├── Dashboard.tsx
-│   │   └── index.tsx
-│   ├── styles
-│   │   └── global.css
-│   ├── types
-│   │   └── index.ts
-│   ├── utils
-│   │   └── index.ts
-│   └── App.tsx
-├── package.json
-├── tsconfig.json
-└── README.md
-```
-
-## Installation
-
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Run `npm install` to install dependencies.
-4. Run `npm start` to start the development server.
-
-## License
-
-This project is licensed under the MIT License.
