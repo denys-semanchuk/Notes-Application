@@ -1,5 +1,5 @@
 header {
-  background: white;
+  background: var(--bg-primary);
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   display: flex;
@@ -11,7 +11,7 @@ header {
 header h1 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #2563eb;
+  color: var(--accent-color);
   margin: 0;
 }
 header img {

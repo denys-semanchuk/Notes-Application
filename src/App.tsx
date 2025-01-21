@@ -5,6 +5,8 @@ import Dashboard from 'pages/Dashboard';
 import './styles/global.css';
 import { Home } from 'pages/Home';
 import { Notepad } from 'pages/Notepad';
+import NotFound from 'pages/404';
+import About from 'pages/about';
 
 const App = () => {
   return (
@@ -12,8 +14,9 @@ const App = () => {
       <Route path="/" element={<Dashboard />}>
         <Route index element={<Home />} />
         <Route path="notepad/:id" element={<Notepad />} />
+        <Route path="about" element={<About />} />
       </Route>
-      <Route path="*" element={<h1>404 Not Found</h1>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

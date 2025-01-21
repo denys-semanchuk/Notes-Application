@@ -8,10 +8,10 @@
 
 .editor-section,
 .preview-section {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--card-shadow);
 }
 
 .markdown-editor {
@@ -48,7 +48,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #1e293b;
+  color: var( --text-primary);
 }
 
 @media (max-width: 768px) {

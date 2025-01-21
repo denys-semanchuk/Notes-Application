@@ -7,18 +7,18 @@
 .notes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 2rem;
   margin-bottom: 80px;
 }
 
 .note-card {
-  background: white;
+  background: var(--bg-secondary);
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
-  color: inherit;
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -36,7 +36,7 @@
 }
 
 .note-preview {
-  color: #64748b;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   line-height: 1.5;
   margin: 0;
@@ -48,7 +48,7 @@
 }
 
 .note-date {
-  color: #94a3b8;
+  color: var(--text-secondary);
   font-size: 0.75rem;
   margin-top: auto;
 }
@@ -62,11 +62,12 @@
 .delete-button {
   background: none;
   border: none;
-  color: #94a3b8;
+  color: var(--text-secondary);
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
   font-size: 16px;
+  transition: all .3s;
 }
 
 .delete-button:hover {
