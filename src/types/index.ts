@@ -1,4 +1,3 @@
-
 export interface NavLink {
   label: string;
   path: string;
@@ -20,5 +19,6 @@ export interface Note {
   title: string;
   content: string;
   createdAt: string;
-  updatedAt?:string
+  updatedAt?: string;
+  images: string[];
 }
