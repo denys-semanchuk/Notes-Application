@@ -6,7 +6,7 @@
   padding: 2rem;
 }
 
-.editor-section,
+.editor-content,
 .preview-section {
   background: var(--bg-primary);
   border-radius: 8px;
@@ -47,16 +47,6 @@
   display: flex;
   gap: 0.5rem;
   align-items: center;
-}
-
-.markdown-editor {
-  min-height: 300px;
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  resize: vertical;
-  outline: none;
-  font-family: monospace;
 }
 
 .editor-content {
