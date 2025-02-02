@@ -7,3 +7,8 @@ export const selectArchivedNotes = createSelector(
   [selectNotes],
   (notes) => notes.filter(note => note.isArchived)
 );
+
+export const selectFavoriteNotes = createSelector(
+  [selectNotes],
+  (notes) => notes.filter(note => note.isFavorite && !note.isArchived)
+);

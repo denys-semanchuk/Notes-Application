@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Note } from 'types';
 import 'styles/notecard.css';
 import { useDispatch } from 'react-redux';
-import { removeNote, toggleArchive } from 'store/slices/notesSlice';
+import { removeNote, toggleArchive, toggleFavorite } from 'store/slices/notesSlice';
 import { ShareButton } from './ShareButton';
 interface NoteCardProps {
   note: Note;
@@ -29,10 +29,23 @@ export const NoteCard = ({ note }: NoteCardProps) => {
     dispatch(toggleArchive(note.id));
   };
 
+  const handleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault();
+    dispatch(toggleFavorite(note.id));
+  };
+
+
   return (
     <div className='link-wrapper'>
       <div className="note-actions">
         <ShareButton note={note} />
+        <button
+          onClick={handleFavorite}
+          className={`favorite-button ${note.isFavorite ? 'active' : ''}`}
+          aria-label={note.isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          {note.isFavorite ? "⭐" : "☆"}
+        </button>
         <button
           onClick={handleArchive}
           className="archive-button"
