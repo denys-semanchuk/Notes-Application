@@ -1,0 +1,29 @@
+.image-upload {
+  margin: 1rem 0;
+}
+
+.image-upload input[type="file"] {
+  display: none;
+}
+
+.image-upload label {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.image-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.note-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}

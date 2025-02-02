@@ -13,7 +13,7 @@ export const Home = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const notes = useSelector((state: RootState) => state.notes.notes);
-  const filteredNotes = notes.filter(note => 
+  const filteredNotes = notes.filter(note =>
     note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
     note.content.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -24,6 +24,7 @@ export const Home = () => {
       title: 'New Note',
       content: '',
       createdAt: new Date().toISOString(),
+      images: []
     };
     dispatch(addNote(newNote));
     navigate(`/notepad/${newNote.id}`);
@@ -50,7 +51,7 @@ export const Home = () => {
           <AddButton onClick={createANote} />
         </div>
       )}
-      
+
       {notes.length > 0 && filteredNotes.map(note => (
         <div key={note.id}>
           <NoteCard note={note} />
