@@ -17,7 +17,6 @@ const App = () => {
         <Route path="notepad/:id" element={<Notepad />} />
         <Route path="about" element={<About />} />
         <Route path="archive" element={<Archive />} />
-
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
