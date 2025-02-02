@@ -4,6 +4,8 @@ import { useParams } from 'react-router';
 import { RootState } from 'store';
 import { updateNote } from 'store/slices/notesSlice';
 import { ImageUpload } from 'components/common/ImageUpload';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import 'styles/notepad.css';
 
 export const Notepad = () => {
@@ -20,12 +22,13 @@ export const Notepad = () => {
       editorRef.current.innerHTML = note.content;
       setTitle(note.title);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleContentChange = () => {
     if (editorRef.current) {
-      updateNoteState(editorRef.current.innerHTML, title);
+      const newContent = editorRef.current.innerText;
+      updateNoteState(newContent, title);
     }
   };
 
@@ -79,7 +82,12 @@ export const Notepad = () => {
       </div>
       <div className="preview-section">
         <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: editorRef.current?.innerHTML || '' }} />
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          className="markdown-preview"
+        >
+          {editorRef.current?.innerText || ''}
+        </ReactMarkdown>
       </div>
     </div>
   );
