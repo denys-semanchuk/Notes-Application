@@ -20,6 +20,7 @@ export const Notepad = () => {
       editorRef.current.innerHTML = note.content;
       setTitle(note.title);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleContentChange = () => {
