@@ -1,0 +1,21 @@
+.sort-controls {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.sort-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.sort-button.active {
+  background: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
