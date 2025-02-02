@@ -20,7 +20,7 @@ export const Notepad = () => {
       editorRef.current.innerHTML = note.content;
       setTitle(note.title);
     }
-  }, [note]);
+  }, []);
 
   const handleContentChange = () => {
     if (editorRef.current) {
