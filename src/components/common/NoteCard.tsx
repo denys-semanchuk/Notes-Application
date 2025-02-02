@@ -4,6 +4,7 @@ import { Note } from 'types';
 import 'styles/notecard.css';
 import { useDispatch } from 'react-redux';
 import { removeNote, toggleArchive } from 'store/slices/notesSlice';
+import { ShareButton } from './ShareButton';
 interface NoteCardProps {
   note: Note;
 }
@@ -29,9 +30,10 @@ export const NoteCard = ({ note }: NoteCardProps) => {
   };
 
   return (
-    <Link to={`/notepad/${note.id}`} className="note-card">
+    <div className='link-wrapper'>
       <div className="note-actions">
-        <button 
+        <ShareButton note={note} />
+        <button
           onClick={handleArchive}
           className="archive-button"
           aria-label={note.isArchived ? "Unarchive" : "Archive"}
@@ -39,18 +41,20 @@ export const NoteCard = ({ note }: NoteCardProps) => {
           {note.isArchived ? "📤" : "📥"}
         </button>
       </div>
-      <div className="note-header">
-        <h3 className="note-title">{note.title || 'Untitled'}</h3>
-        <button
-          className="delete-button"
-          onClick={handleDelete}
-          aria-label="Delete note"
-        >
-          ✕
-        </button>
-      </div>
-      <p className="note-preview">{note.content.slice(0, 100) || 'Empty note...'}</p>
-      <span className="note-date">{formatDate(note.createdAt)}</span>
-    </Link>
+      <Link to={`/notepad/${note.id}`} className="note-card">
+        <div className="note-header">
+          <h3 className="note-title">{note.title || 'Untitled'}</h3>
+          <button
+            className="delete-button"
+            onClick={handleDelete}
+            aria-label="Delete note"
+          >
+            ✕
+          </button>
+        </div>
+        <p className="note-preview">{note.content.slice(0, 100) || 'Empty note...'}</p>
+        <span className="note-date">{formatDate(note.createdAt)}</span>
+      </Link>
+    </div>
   );
 };

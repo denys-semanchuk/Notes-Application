@@ -81,6 +81,7 @@
   right: 1.4rem;
   display: flex;
   gap: 0.5rem;
+  z-index: 5;
 }
 
 .archive-button {
@@ -92,6 +93,7 @@
   transition: background-color 0.2s;
 }
 
-.archive-button:hover {
-  background-color: var(--bg-secondary);
+
+.link-wrapper {
+  position: relative;
 }
