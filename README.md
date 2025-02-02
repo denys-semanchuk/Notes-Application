@@ -1,22 +1,28 @@
-# React Dashboard
+## QuickQuill Notes App
 
-A modern React dashboard application for managing markdown notes. Built with React, Redux Toolkit, and TypeScript, featuring a clean and responsive design.
+A modern, feature-rich note-taking application built with React and TypeScript. QuickQuill helps you organize your thoughts with a clean, intuitive interface and powerful features.
 
-## Features
+## ✨ Features
 
-- **Notes Management**: Create, edit, and delete markdown notes
-- **Markdown Support**: Full markdown editing and preview
-- **Persistent Storage**: Automatic saving to localStorage
-- **Responsive Design**: Works on desktop and mobile devices
+- 📝 Rich text editing with markdown support
+- 🖼️ Image attachments
+- ⭐ Favorite notes
+- 📥 Archive functionality
+- 🔍 Search capabilities
+- 🔄 Auto-saving
+- 📱 Responsive design
+- 🌓 Light/Dark theme
+- 📋 Share notes via clipboard/email
+- 🔤 Sort notes by date/title
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-- React 18
+- React
 - TypeScript
 - Redux Toolkit
-- React Router v6
-- React Markdown
-- UUID
+- React Router
+- CSS Modules
+- Local Storage
 
 ## Getting Started
 
