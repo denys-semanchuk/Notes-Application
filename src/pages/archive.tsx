@@ -1,12 +1,10 @@
 import { NoteCard } from 'components/common/NoteCard';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { RootState } from 'store';
+import { selectArchivedNotes } from 'store/selectors/noteSelectors';
 import 'styles/pages/archives.css'
 export const Archive = () => {
-  const archivedNotes = useSelector((state: RootState) => 
-    state.notes.notes.filter(note => note.isArchived)
-  );
+  const archivedNotes = useSelector(selectArchivedNotes);
 
   return (
     <div className="container">
