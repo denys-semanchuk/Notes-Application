@@ -7,7 +7,7 @@ export const Archive = () => {
   const archivedNotes = useSelector(selectArchivedNotes);
 
   return (
-    <div className="container">
+    <div>
       <h1>Archived Notes</h1>
       {archivedNotes.map(note => (
         <NoteCard key={note.id} note={note} />

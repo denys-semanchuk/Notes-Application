@@ -12,7 +12,6 @@ export const Home = () => {
   const location = useLocation();
   const isMainRoute = location.pathname === '/';
 
-  // Filter for active notes only on main route
   const activeNotes = sortedAndFilteredNotes.filter(note => !note.isArchived);
 
   return (
