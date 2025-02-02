@@ -20,7 +20,8 @@ export const useNotesManagement = () => {
       content: '',
       createdAt: new Date().toISOString(),
       images: [],
-      isArchived: false
+      isArchived: false,
+      isFavorite: false
     };
     dispatch(addNote(newNote));
     navigate(`/notepad/${newNote.id}`);

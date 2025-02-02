@@ -22,4 +22,5 @@ export interface Note {
   updatedAt?: string;
   images: string[];
   isArchived: boolean;
+  isFavorite: boolean;
 }

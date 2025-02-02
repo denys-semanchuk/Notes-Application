@@ -51,9 +51,16 @@ const notesSlice = createSlice({
         note.updatedAt = new Date().toISOString();
       }
     },
+    toggleFavorite: (state, action: PayloadAction<string>) => {
+      const note = state.notes.find(note => note.id === action.payload);
+      if (note) {
+        note.isFavorite = !note.isFavorite;
+        note.updatedAt = new Date().toISOString();
+      }
+    }
   },
 });
 
-export const { addNote, removeNote, updateNote, setSortBy, toggleArchive } =
+export const { addNote, removeNote, updateNote, setSortBy, toggleArchive, toggleFavorite } =
   notesSlice.actions;
 export default notesSlice.reducer;
