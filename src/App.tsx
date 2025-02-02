@@ -7,6 +7,7 @@ import { Home } from 'pages/Home';
 import { Notepad } from 'pages/Notepad';
 import NotFound from 'pages/404';
 import About from 'pages/about';
+import { Archive } from 'pages/archive';
 
 const App = () => {
   return (
@@ -15,6 +16,8 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="notepad/:id" element={<Notepad />} />
         <Route path="about" element={<About />} />
+        <Route path="archive" element={<Archive />} />
+
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>

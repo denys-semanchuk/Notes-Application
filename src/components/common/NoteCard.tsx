@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Note } from 'types';
 import 'styles/notecard.css';
 import { useDispatch } from 'react-redux';
-import { removeNote } from 'store/slices/notesSlice';
+import { removeNote, toggleArchive } from 'store/slices/notesSlice';
 interface NoteCardProps {
   note: Note;
 }
@@ -23,8 +23,22 @@ export const NoteCard = ({ note }: NoteCardProps) => {
     dispatch(removeNote(note.id));
   };
 
+  const handleArchive = (e: React.MouseEvent) => {
+    e.preventDefault();
+    dispatch(toggleArchive(note.id));
+  };
+
   return (
     <Link to={`/notepad/${note.id}`} className="note-card">
+      <div className="note-actions">
+        <button 
+          onClick={handleArchive}
+          className="archive-button"
+          aria-label={note.isArchived ? "Unarchive" : "Archive"}
+        >
+          {note.isArchived ? "📤" : "📥"}
+        </button>
+      </div>
       <div className="note-header">
         <h3 className="note-title">{note.title || 'Untitled'}</h3>
         <button

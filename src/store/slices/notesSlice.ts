@@ -37,12 +37,23 @@ const notesSlice = createSlice({
         state.notes[index] = action.payload;
       }
     },
-    setSortBy: (state, action: PayloadAction<{ type: SortType; direction: SortDirection }>) => {
+    setSortBy: (
+      state,
+      action: PayloadAction<{ type: SortType; direction: SortDirection }>
+    ) => {
       state.sortBy = action.payload.type;
       state.sortDirection = action.payload.direction;
-    }
+    },
+    toggleArchive: (state, action: PayloadAction<string>) => {
+      const note = state.notes.find((note) => note.id === action.payload);
+      if (note) {
+        note.isArchived = !note.isArchived;
+        note.updatedAt = new Date().toISOString();
+      }
+    },
   },
 });
 
-export const { addNote, removeNote, updateNote,setSortBy } = notesSlice.actions;
+export const { addNote, removeNote, updateNote, setSortBy, toggleArchive } =
+  notesSlice.actions;
 export default notesSlice.reducer;

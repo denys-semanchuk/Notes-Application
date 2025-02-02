@@ -8,31 +8,38 @@ import { addNote } from 'store/slices/notesSlice';
 import { useNavigate } from 'react-router';
 import { NoteCard } from 'components/common/NoteCard';
 import { SortNotes } from 'components/common/SortNotes';
+import { Note } from 'types';
 
 export const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const { notes, sortBy, sortDirection } = useSelector((state: RootState) => state.notes);
-  const filteredNotes = notes.filter(note =>
-    note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    note.content.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+
 
   const createANote = (): string => {
-    const newNote = {
+    const newNote: Note = {
       id: uuidv4(),
       title: 'New Note',
       content: '',
       createdAt: new Date().toISOString(),
-      images: []
+      images: [],
+      isArchived: false
     };
     dispatch(addNote(newNote));
     navigate(`/notepad/${newNote.id}`);
     return newNote.id
   }
 
-  const sortedNotes = [...notes].sort((a, b) => {
+  const activeNotes = useSelector((state: RootState) =>
+    state.notes.notes.filter(note => !note.isArchived)
+  );
+  const filteredNotes = activeNotes.filter(note =>
+    note.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    note.content.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const sortedAndFilteredNotes = [...filteredNotes].sort((a, b) => {
     if (sortBy === 'date') {
       return sortDirection === 'asc'
         ? new Date(a.updatedAt!).getTime() - new Date(b.updatedAt!).getTime()
@@ -43,6 +50,7 @@ export const Home = () => {
         : b.title.localeCompare(a.title);
     }
   });
+
 
 
   return (
@@ -66,7 +74,7 @@ export const Home = () => {
       )}
 
       <SortNotes />
-      {sortedNotes.length > 0 && sortedNotes.map(note => (
+      {sortedAndFilteredNotes.length > 0 && sortedAndFilteredNotes.map(note => (
         <div key={note.id}>
           <NoteCard note={note} />
           <div className='add-button-container'>
