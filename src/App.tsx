@@ -9,6 +9,7 @@ import NotFound from 'pages/404';
 import About from 'pages/about';
 import { Archive } from 'pages/archive';
 import { Favorites } from './pages/Favorites';
+import { Search } from 'pages/Search';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="archive" element={<Archive />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
+        <Route path="search" element={<Search />} />
         <Route path="*" element={<NotFound />} />
         <Route path="notepad/:id" element={<Notepad />} />
         <Route path="about" element={<About />} />

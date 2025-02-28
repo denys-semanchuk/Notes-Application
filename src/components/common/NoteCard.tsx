@@ -7,9 +7,17 @@ import { removeNote, toggleArchive, toggleFavorite } from 'store/slices/notesSli
 import { ShareButton } from './ShareButton';
 interface NoteCardProps {
   note: Note;
+  highlightText?: string;
 }
+const highlightFn = (text: string, highlight: string) => {
+  if (!highlight.trim()) {
+    return text;
+  }
 
-export const NoteCard = ({ note }: NoteCardProps) => {
+  const regex = new RegExp(`(${highlight.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  return text.replace(regex, '<span class="highlight">$1</span>');
+};
+export const NoteCard = ({ note, highlightText }: NoteCardProps) => {
   const dispatch = useDispatch();
   const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString('en-US', {
@@ -37,6 +45,14 @@ export const NoteCard = ({ note }: NoteCardProps) => {
 
   return (
     <div className='link-wrapper'>
+      <div
+        className="note-preview"
+        dangerouslySetInnerHTML={{
+          __html: highlightText
+            ? highlightFn(note.content.substring(0, 100), highlightText)
+            : note.content.substring(0, 100) + '...'
+        }}
+      />
       <div className="note-actions">
         <ShareButton note={note} />
         <button
