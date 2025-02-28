@@ -10,6 +10,7 @@ import About from 'pages/about';
 import { Archive } from 'pages/archive';
 import { Favorites } from './pages/Favorites';
 import { Search } from 'pages/Search';
+import { MyNotes } from 'pages/myNotes';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="*" element={<NotFound />} />
         <Route path="notepad/:id" element={<Notepad />} />
         <Route path="about" element={<About />} />
+        <Route path="notes" element={<MyNotes />} />
       </Route>
     </Routes>
   );

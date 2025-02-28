@@ -45,14 +45,6 @@ export const NoteCard = ({ note, highlightText }: NoteCardProps) => {
 
   return (
     <div className='link-wrapper'>
-      <div
-        className="note-preview"
-        dangerouslySetInnerHTML={{
-          __html: highlightText
-            ? highlightFn(note.content.substring(0, 100), highlightText)
-            : note.content.substring(0, 100) + '...'
-        }}
-      />
       <div className="note-actions">
         <ShareButton note={note} />
         <button
@@ -81,7 +73,14 @@ export const NoteCard = ({ note, highlightText }: NoteCardProps) => {
             ✕
           </button>
         </div>
-        <p className="note-preview">{note.content.slice(0, 100) || 'Empty note...'}</p>
+        <div
+        className="note-preview"
+        dangerouslySetInnerHTML={{
+          __html: highlightText
+            ? highlightFn(note.content.substring(0, 100), highlightText)
+            : note.content.substring(0, 100) + '...'
+        }}
+      />
         <span className="note-date">{formatDate(note.createdAt)}</span>
       </Link>
     </div>

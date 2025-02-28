@@ -1,0 +1,389 @@
+.my-notes-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.title-section h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+}
+
+.stats-pills {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.stat-pill {
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.3rem 0.75rem;
+  border-radius: 30px;
+}
+
+.stat-pill.total {
+  background-color: rgba(var(--accent-rgb, 99, 102, 241), 0.1);
+  color: var(--accent-color);
+}
+
+.stat-pill.active {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.stat-pill.archived {
+  background-color: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+}
+
+.stat-pill.favorites {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+
+.create-note-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(var(--accent-rgb, 99, 102, 241), 0.2);
+}
+
+.create-note-button:hover {
+  background-color: var(--accent-color-hover, #4f46e5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--accent-rgb, 99, 102, 241), 0.3);
+}
+
+.tools-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.search-container {
+  flex: 1;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+  background-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb, 99, 102, 241), 0.1);
+}
+
+.clear-search {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.view-options {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.view-button, 
+.sort-button, 
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+}
+
+.view-button.active,
+.sort-button.active,
+.filter-button.active {
+  background-color: var(--bg-active);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.view-button:hover,
+.sort-button:hover,
+.filter-button:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--border-color);
+  margin: 0 0.5rem;
+}
+
+.sort-dropdown {
+  position: relative;
+}
+
+.sort-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  z-index: 10;
+  display: none;
+}
+
+.sort-dropdown:hover .sort-menu {
+  display: block;
+}
+
+.sort-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sort-menu button:hover {
+  background-color: var(--bg-hover);
+}
+
+.sort-menu button.active {
+  background-color: var(--bg-active);
+  color: var(--accent-color);
+}
+
+.filter-panel {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.category-filters h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+}
+
+.category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.category-pill {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+}
+
+.category-pill.active {
+  background-color: var(--accent-color);
+  color: white;
+  border-color: var(--accent-color);
+}
+
+.category-pill:hover:not(.active) {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.clear-filters-button {
+  margin-top: 1rem;
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.clear-filters-button:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+
+.search-results-info {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.notes-container {
+  margin-bottom: 2rem;
+}
+
+.notes-container.grid-view {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.notes-container.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.notes-container.list-view .note-card-container {
+  width: 100%;
+}
+
+/* Add this to your notecard.css */
+.list-view .note-card {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+  min-height: 80px;
+}
+
+.list-view .note-header {
+  flex: 0 0 auto;
+  width: 25%;
+}
+
+.list-view .note-preview {
+  flex: 0 0 auto;
+  width: 40%;
+  max-height: 60px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-view .note-date {
+  flex: 0 0 auto;
+  width: 15%;
+}
+
+.list-view .note-actions {
+  flex: 0 0 auto;
+  width: 20%;
+  justify-content: flex-end;
+}
+
+/* Highlight for search terms */
+.highlight {
+  background-color: rgba(var(--accent-rgb, 99, 102, 241), 0.2);
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: 500;
+}
+
+@media (max-width: 992px) {
+  .my-notes-page {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-notes-page {
+    padding: 1rem;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tools-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .view-options {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .notes-container.grid-view {
+    grid-template-columns: 1fr;
+  }
+  
+  .list-view .note-preview {
+    display: none;
+  }
+  
+  .list-view .note-header {
+    width: 50%;
+  }
+  
+  .list-view .note-date {
+    width: 25%;
+  }
+  
+  .list-view .note-actions {
+    width: 25%;
+  }
+}
