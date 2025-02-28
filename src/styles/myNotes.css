@@ -292,7 +292,6 @@
   width: 100%;
 }
 
-/* Add this to your notecard.css */
 .list-view .note-card {
   flex-direction: row;
   align-items: center;

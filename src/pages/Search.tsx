@@ -19,7 +19,6 @@ export const Search = () => {
   });
   const [categories, setCategories] = useState<string[]>([]);
   
-  // Extract unique categories from notes
   useEffect(() => {
     if (notes.length) {
       const uniqueCategories = [...new Set(
@@ -31,7 +30,6 @@ export const Search = () => {
     }
   }, [notes]);
   
-  // Search and filter notes when query or filters change
   useEffect(() => {
     if (query.trim() === '' && !activeFilters.showArchived && !activeFilters.showFavorites && activeFilters.category === 'all') {
       setSearchResults([]);
@@ -40,7 +38,6 @@ export const Search = () => {
     
     let filtered = [...notes];
     
-    // Apply text search
     if (query.trim() !== '') {
       const searchTerm = query.toLowerCase();
       filtered = filtered.filter(note => 
@@ -49,7 +46,6 @@ export const Search = () => {
       );
     }
     
-    // Apply filters
     if (!activeFilters.showArchived) {
       filtered = filtered.filter(note => !note.isArchived);
     }

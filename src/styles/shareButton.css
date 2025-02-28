@@ -1,7 +1,7 @@
 .share-container {
   position: relative;
   display: inline-block;
-  z-index: 9000; /* Увеличенный z-index для контейнера */
+  z-index: 9000;
 }
 
 .share-button {
@@ -18,8 +18,8 @@
   font-size: 1rem;
   border: 1px solid var(--border-color);
   transition: all 0.2s ease;
-  position: relative; /* Явное задание позиции */
-  z-index: 9001; /* Позиция выше, чем у контейнера */
+  position: relative; 
+  z-index: 9001; 
 }
 
 .share-button:hover {
@@ -41,10 +41,10 @@
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Важно для правильного отображения закругленных углов */
+  overflow: hidden; 
   transform-origin: top right;
   will-change: transform, opacity;
-  max-height: 70vh; /* Задаем максимальную высоту меню */
+  max-height: 70vh;
 }
 
 .share-menu button {
@@ -104,9 +104,9 @@
 
 .share-menu-content {
   padding: 8px;
-  overflow-y: auto; /* Добавляем прокрутку */
-  flex: 1; /* Занимает доступное пространство */
-  scrollbar-width: thin; /* Тонкий скроллбар для Firefox */
+  overflow-y: auto; 
+  flex: 1; 
+  scrollbar-width: thin; 
   scrollbar-color: var(--accent-color) transparent;
 }
 
@@ -223,8 +223,8 @@
     border-left: none;
     border-right: none;
     border-bottom: none;
-    max-height: 80vh; /* Ограничиваем высоту на мобильных */
-    overflow-y: auto; /* Добавляем прокрутку */
+    max-height: 80vh;
+    overflow-y: auto;
   }
   
   .share-option-button {
@@ -235,11 +235,11 @@
     max-height: 40vh;
     overflow-y: auto;
     padding: 10px 12px;
-    padding-bottom: 20px; /* Дополнительный отступ внизу для удобства на мобильных */
+    padding-bottom: 20px; 
   }
 }
 
-/* Фиксация для Safari и некоторых браузеров, где могут быть проблемы с position:fixed */
+
 @supports (-webkit-overflow-scrolling: touch) {
   .share-menu {
     -webkit-transform: translateZ(0);

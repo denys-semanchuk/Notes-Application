@@ -1,5 +1,3 @@
-// This file exports utility functions that can be used across the application for common tasks.
-
 export const formatDate = (date: Date): string => {
     return date.toLocaleDateString();
 };

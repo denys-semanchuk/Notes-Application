@@ -18,7 +18,6 @@ export const Home = () => {
 
   const activeNotes = sortedAndFilteredNotes.filter(note => !note.isArchived);
   
-  // Generate greeting based on time of day
   useEffect(() => {
     const hour = new Date().getHours();
     let newGreeting = '';
@@ -33,7 +32,6 @@ export const Home = () => {
     
     setGreeting(newGreeting);
     
-    // Check if it's a first-time visitor
     const hasVisitedBefore = localStorage.getItem('hasVisitedBefore');
     if (!hasVisitedBefore) {
       setShowWelcome(true);

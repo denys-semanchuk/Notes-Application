@@ -29,10 +29,8 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
   
-  // Модифицируем обработчик клика вне меню
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Проверяем, что клик не на меню и не на кнопке открытия
       const targetElement = event.target as Node;
       const buttonElement = children ? divRef.current : buttonRef.current;
       
@@ -47,7 +45,6 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
     };
     
     if (isMenuOpen) {
-      // Используем setTimeout, чтобы обработчик добавился после текущего цикла событий
       setTimeout(() => {
         document.addEventListener('mousedown', handleClickOutside);
       }, 0);
@@ -58,11 +55,9 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
     };
   }, [isMenuOpen, children]);
   
-  // Обновленный эффект для расчета позиции
   useEffect(() => {
     if (isMenuOpen) {
       const calculatePosition = () => {
-        // Определяем, какой элемент использовать как опорный
         const element = children ? divRef.current : buttonRef.current;
         if (!element) return;
         
@@ -74,7 +69,6 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
         let left = buttonRect.right - menuWidth;
         let top = buttonRect.bottom + 5;
         
-        // Проверки границ экрана
         if (top + menuHeight > window.innerHeight) {
           top = Math.max(10, buttonRect.top - menuHeight - 5);
         }
@@ -99,7 +93,6 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
     }
   }, [isMenuOpen, children]);
 
-  // Функции для шаринга - добавляем остановку всплытия событий
   const copyToClipboard = async (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -183,7 +176,6 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Анимации меню
   const menuVariants = {
     hidden: { opacity: 0, scale: 0.8, y: -10 },
     visible: { 
@@ -206,7 +198,6 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
     }
   };
 
-  // Создаем элемент для портала, если его еще нет
   useEffect(() => {
     if (typeof document !== 'undefined') {
       let portalContainer = document.getElementById('share-menu-portal');
@@ -220,7 +211,6 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
 
   return (
     <div className="share-container">
-      {/* Кнопка для открытия меню */}
       {children ? (
         <div onClick={handleToggleMenu} ref={divRef}>
           {children}
@@ -238,12 +228,11 @@ export const ShareButton: React.FC<ShareButtonProps> = ({ note, children }) => {
         </motion.button>
       )}
       
-      {/* Меню шеринга через портал */}
       {isMenuOpen && ReactDOM.createPortal(
         <div 
           className="share-menu-wrapper"
           ref={menuRef}
-          onClick={(e) => e.stopPropagation()} // Важно! Останавливаем всплытие
+          onClick={(e) => e.stopPropagation()} 
         >
           <motion.div 
             className="share-menu"

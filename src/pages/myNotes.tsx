@@ -30,11 +30,9 @@ export const MyNotes = () => {
     return ['All', ...new Set(allCategories)];
   }, [notes]);
   
-  // Apply search, filter, and sort
   useEffect(() => {
     let result = [...notes];
     
-    // Apply search
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
       result = result.filter(note => 
