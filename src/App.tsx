@@ -11,6 +11,7 @@ import { Archive } from 'pages/archive';
 import { Favorites } from './pages/Favorites';
 import { Search } from 'pages/Search';
 import { MyNotes } from 'pages/myNotes';
+import { Categories } from 'pages/Categories';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="notepad/:id" element={<Notepad />} />
         <Route path="about" element={<About />} />
         <Route path="notes" element={<MyNotes />} />
+        <Route path="categories" element={<Categories />} />
       </Route>
     </Routes>
   );

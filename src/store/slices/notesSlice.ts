@@ -57,10 +57,18 @@ const notesSlice = createSlice({
         note.isFavorite = !note.isFavorite;
         note.updatedAt = new Date().toISOString();
       }
-    }
+    },
+    setNoteCategory: (state, action: PayloadAction<{ id: string, category: string | null }>) => {
+      const { id, category } = action.payload;
+      const noteIndex = state.notes.findIndex(note => note.id === id);
+      
+      if (noteIndex !== -1) {
+        state.notes[noteIndex].category = category;
+      }
+    },
   },
 });
 
-export const { addNote, removeNote, updateNote, setSortBy, toggleArchive, toggleFavorite } =
+export const { addNote, removeNote, updateNote, setSortBy, toggleArchive, toggleFavorite, setNoteCategory } =
   notesSlice.actions;
 export default notesSlice.reducer;

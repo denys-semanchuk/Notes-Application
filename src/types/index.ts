@@ -23,5 +23,5 @@ export interface Note {
   images: string[];
   isArchived: boolean;
   isFavorite: boolean;
-  category?:string
+  category: string | null; 
 }
