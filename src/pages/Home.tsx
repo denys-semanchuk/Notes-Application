@@ -3,7 +3,6 @@ import 'styles/home.css';
 import { NoteCard } from 'components/common/NoteCard';
 import { SortNotes } from 'components/common/SortNotes';
 import { useNotesManagement } from 'hooks/useNotesManagement';
-import { Tabs } from 'components/common/NotesTabs';
 import { Outlet, useLocation } from 'react-router';
 import { motion } from 'framer-motion';
 import { EmptyState } from 'components/common/EmptyState';
@@ -105,7 +104,6 @@ export const Home = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          <i className="fas fa-search search-icon"></i>
           <input
             type="text"
             placeholder="Search notes by title or content..."
@@ -127,7 +125,6 @@ export const Home = () => {
       
       {notes.length > 0 && <StatsBar notes={notes} />}
       
-      <Tabs />
 
       {notes.length === 0 ? (
         <EmptyState 

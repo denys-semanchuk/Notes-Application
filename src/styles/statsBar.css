@@ -15,6 +15,15 @@
   border: 1px solid var(--border-color);
 }
 
+/* Стили для ссылок внутри stat-item */
+.stat-item a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
 .stat-icon {
   width: 50px;
   height: 50px;
@@ -43,12 +52,21 @@
   color: var(--text-primary);
   margin-bottom: 0.25rem;
   line-height: 1;
+  text-decoration: none;
+}
+
+.stat-item a .stat-value {
+  color: var(--text-primary);
 }
 
 .stat-label {
   font-size: 0.85rem;
   color: var(--text-secondary);
   font-weight: 500;
+}
+
+.stat-item a .stat-label {
+  color: var(--text-secondary);
 }
 
 /* Indicator colors for different stat items */
@@ -97,24 +115,24 @@
     gap: 0.75rem;
     margin-bottom: 2rem;
   }
-  
+
   .stat-item {
     padding: 1rem;
   }
-  
+
   .stat-icon {
     width: 40px;
     height: 40px;
   }
-  
+
   .stat-icon i {
     font-size: 1.25rem;
   }
-  
+
   .stat-value {
     font-size: 1.25rem;
   }
-  
+
   .stat-label {
     font-size: 0.8rem;
   }
