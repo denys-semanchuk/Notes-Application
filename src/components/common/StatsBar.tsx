@@ -3,12 +3,15 @@ import { motion } from 'framer-motion';
 import 'styles/statsBar.css';
 import { Note } from 'types/index';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectCategoryLength } from 'store/selectors/categorySelectors';
 
 interface StatsBarProps {
   notes: Note[];
 }
 
 export const StatsBar: React.FC<StatsBarProps> = ({ notes }) => {
+  const categoriesCount = useSelector(selectCategoryLength)
   const stats = useMemo(() => {
     const active = notes.filter(note => !note.isArchived).length;
     const archived = notes.filter(note => note.isArchived).length;
@@ -138,7 +141,7 @@ export const StatsBar: React.FC<StatsBarProps> = ({ notes }) => {
           <i className="fas fa-folder"></i>
         </div>
         <div className="stat-info">
-          <span className="stat-value">{stats.totalCategories}</span>
+          <span className="stat-value">{categoriesCount}</span>
           <span className="stat-label">Categories</span>
         </div>
         </Link>

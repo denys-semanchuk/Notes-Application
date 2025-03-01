@@ -35,7 +35,6 @@ const categoriesSlice = createSlice({
     },
     toggleEditMode: (state) => {
       state.editMode = !state.editMode;
-      // Reset editing state when toggling edit mode
       if (!state.editMode) {
         state.editingCategory = null;
       }
