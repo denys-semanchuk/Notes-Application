@@ -13,7 +13,6 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 import "styles/myNotes.css";
-import { Helmet } from "react-helmet";
 
 export const MyNotes = () => {
   const { notes, createANote } = useNotesManagement();
@@ -145,10 +144,8 @@ export const MyNotes = () => {
 
   return (
     <>
-      <Helmet>
-        <title>My Notes | QuickQuill</title>
-        <meta name="description" content="My Notes" />
-      </Helmet>
+      <title>My Notes | QuickQuill</title>
+      <meta name="description" content="My Notes" />
       <div className="my-notes-page">
         <motion.div
           className="page-header"

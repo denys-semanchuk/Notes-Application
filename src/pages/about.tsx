@@ -1,14 +1,11 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 import "styles/about.css";
 
 const About = () => {
   return (
     <>
-      <Helmet>
-        <title>About | QuickQuill</title>
-        <meta name="description" content="About page" />
-      </Helmet>
+      <title>About | QuickQuill</title>
+      <meta name="description" content="About page" />
       <div className="about-container">
         <section className="about-hero">
           <h1>About QuickQuill Notes</h1>

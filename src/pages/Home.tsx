@@ -7,7 +7,6 @@ import { Outlet, useLocation } from "react-router";
 import { motion } from "framer-motion";
 import { EmptyState } from "components/common/EmptyState";
 import { StatsBar } from "components/common/StatsBar";
-import { Helmet } from "react-helmet";
 
 export const Home = () => {
   const {
@@ -70,10 +69,8 @@ export const Home = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Home | QuickQuill</title>
-        <meta name="description" content="Your notes, organized." />
-      </Helmet>
+      <title>Home | QuickQuill</title>
+      <meta name="description" content="Your notes, organized." />
       <div className="home-page">
         {showWelcome && (
           <motion.div

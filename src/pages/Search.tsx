@@ -5,7 +5,6 @@ import { useNotesManagement } from "hooks/useNotesManagement";
 import { NoteCard } from "components/common/NoteCard";
 import { EmptyState } from "components/common/EmptyState";
 import "styles/search.css";
-import { Helmet } from "react-helmet";
 
 export const Search = () => {
   const { notes } = useNotesManagement();
@@ -97,10 +96,8 @@ export const Search = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Search | QuickQuill</title>
-        <meta name="description" content="Search your notes" />
-      </Helmet>
+      <title>Search | QuickQuill</title>
+      <meta name="description" content="Search your notes" />
       <div className="search-page">
         <motion.div
           className="search-header"

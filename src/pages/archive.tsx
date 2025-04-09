@@ -1,6 +1,5 @@
 import { NoteCard } from "components/common/NoteCard";
 import React from "react";
-import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { selectArchivedNotes } from "store/selectors/noteSelectors";
 import "styles/pages/archives.css";
@@ -9,10 +8,8 @@ export const Archive = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Archived Notes | QuickQuill</title>
-        <meta name="description" content="Archived Notes" />
-      </Helmet>
+      <title>Archived Notes | QuickQuill</title>
+      <meta name="description" content="Archived Notes" />
       <div>
         <h1>Archived Notes</h1>
         {archivedNotes.map((note) => (

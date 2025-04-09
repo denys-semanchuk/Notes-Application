@@ -35,7 +35,6 @@ import {
   selectSelectedCategory,
 } from "store/selectors/categorySelectors";
 import { selectFilteredNotes } from "store/selectors/noteSelectors";
-import { Helmet } from "react-helmet";
 
 export const Categories: React.FC = () => {
   const dispatch = useDispatch();
@@ -152,10 +151,8 @@ export const Categories: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Categories | QuickQuill</title>
-        <meta name="description" content="Manage your note categories" />
-      </Helmet>
+      <title>Categories | QuickQuill</title>
+      <meta name="description" content="Manage your note categories" />
       <div className="categories-page">
         <motion.div
           className="page-header"

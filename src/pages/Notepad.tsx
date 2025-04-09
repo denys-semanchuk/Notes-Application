@@ -24,7 +24,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "styles/notepad.css";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet";
 
 export const Notepad = () => {
   const { id } = useParams();
@@ -160,10 +159,11 @@ export const Notepad = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{note ? `Edit Note: ${note.title}` : "Create New Note"}</title>
-        <meta name="description" content="Notepad for creating and editing notes" />
-      </Helmet>
+      <title>{note ? `Edit Note: ${note.title}` : "Create New Note"}</title>
+      <meta
+        name="description"
+        content="Notepad for creating and editing notes"
+      />
       <div className="notepad-container modern">
         <div className="editor-toolbar">
           <div className="toolbar-section basic">
